@@ -3,7 +3,7 @@
 # Maintainer: Felix Xing <fxing@qnx.com>
 pkgname=woff2
 pkgver=1.0.2
-pkgrel=1
+pkgrel=${pkgrel:-0}
 pkgdesc="Web Open Font Format 2 reference implementation"
 options="!check" # No testsuite
 url="https://github.com/google/woff2"
@@ -64,6 +64,7 @@ _enc() {
     amove usr/lib/libwoff2enc.so.*
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 c788bba1530aec463e755e901f9342f4b599e3a07f54645fef1dc388ab5d5c30625535e5dd38e9e792e04a640574baa50eeefb6b7338ab403755f4a4e0c3044d  woff2-1.0.2.tar.gz
 e60add16905b597ed3b10cfe3f4c90d43db28c86466bb65e880a91e84f388e9f03e3a16d0012e717ca170456d91b748c8de5ade4882e8f31e2a60620c183df5f  dont-set-rpath.patch
